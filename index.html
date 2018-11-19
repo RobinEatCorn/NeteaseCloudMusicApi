@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Context menu try</title>
+        <meta charset="utf-8">
+        <style>
+            div#menu {
+                border : 3px black solid;
+                width : 120px;
+                position : relative;
+            }
+            .option {
+                border : 2px red solid;
+            }
+            
+            div#menu ul {
+                list-style : none;
+            }
+            
+            .option:hover {
+                border : 2px yellow solid;
+            }
+        </style>
+        <script>
+            window.onload =
+                () => {
+                    window.addEventListener(
+                        "contextmenu",
+                        (e) => {
+                            e.preventDefault();
+                            menu.style.left=`${e.pageX}px`;
+                            menu.style.top=`${e.pageY}px`;
+                            menu.style.display="block";
+                        }
+                    );
+                    
+                    window.addEventListener(
+                        "click",
+                        (e) => {
+                            menu.style.display="none";
+                            console.log("-----------global----------");
+                            console.log(e);
+                            console.log("---------------------------");
+                        }
+                    );
+                    
+                    var t=document.getElementById("tt");
+                    console.log(t);
+                    t.addEventListener(
+                        "click",
+                        e => {
+                            console.log("-----------local----------");
+                            console.log(e);
+                            console.log("---------------------------");
+                            alert("hello");
+                        }
+                    );
+                    
+                }
+        </script>
+    </head>
+    <body>
+        <div id="menu" style="display:none">
+            <ul>
+                <li class='option' id="tt">a1234</li>
+                <li class='option'>b2345</li>
+                <li class='option'>c3456</li>
+                <li class='option'>d4567</li>
+            </ul>
+        </div>
+    </body>
+</html>

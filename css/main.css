@@ -1,0 +1,32 @@
+ul#nav-bar {
+    list-style-type : none;
+    margin : 0px;
+    padding : 0px;
+    position : fixed;
+    width : 25%;
+    height : 100%;
+    background-color : #dddddd;
+}
+
+ul#nav-bar li a {
+    display : block;
+    margin : 0px;
+    padding : 8px 16px;
+    text-align : center;
+    background-color : #dddddd;
+}
+
+ul#nav-bar li a:hover {
+    background-color : #888888;
+}
+
+
+div#content {
+    display : block;
+    position : fixed;
+    left : 30%;
+    width : 65%;
+    padding : 0;
+    margin : 0;
+    border : 1px solid black;
+}
